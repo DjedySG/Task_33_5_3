@@ -7,7 +7,7 @@ template <typename T1, typename T2>
 class Registry
 {
 public:
-    
+    template <typename T1, typename T2>
     struct foo
     {
         T1 t1;
