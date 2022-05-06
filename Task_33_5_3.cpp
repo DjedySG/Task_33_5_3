@@ -12,23 +12,14 @@ public:
     {
         T1 t1;
         T2 t2;
-        foo() : t1(T1()), t2(T2()) {};
+        foo(T1 a, T2 b) : t1(a), t2(b) {};
     };
 
-    void add()
+    void add(T1 m_key, T2 m_value)
     {
-        T1 m_key;
-        T2 m_value;
-        std::cout << "Enter a key ";
-        std::cin >> m_key;
-        std::cout << "Enter a value ";
-        std::cin >> m_value;
-        foo newFoo; 
-        newFoo.t1 = m_key;
-        newFoo.t2 = m_value;
+        foo <T1, T2> newFoo (m_key, m_value);
         boo.push_back(newFoo);
     }
-
     void print()
     {
         for (int i = 0; i < boo.size(); i++)
@@ -36,7 +27,6 @@ public:
             std::cout << boo[i].t1 << " " << boo[i].t2 << std::endl;
         }
     }
-    
     void find(const T2& m_value)
     {
         for (int i = 0; i < boo.size(); i++)
@@ -45,7 +35,6 @@ public:
                 std::cout << boo[i].t1 << " " << boo[i].t2 << std::endl;
         }
     }
-
     void remove(const T2& m_value)
     {
         for (int i = 0; i < boo.size(); i++)
@@ -53,10 +42,11 @@ public:
             if (boo[i].t2 == m_value)
                 boo.erase(boo.begin() + i);
         }
-    }
+    }   
 
 private:
-    std::vector < foo<T1, T2>> boo;
+    std::vector < foo<T1, T2> > boo;
+
 };
 
 
